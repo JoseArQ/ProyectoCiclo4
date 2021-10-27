@@ -1,0 +1,35 @@
+const Employe = require("../models/empleados.model");
+
+let response = {
+    msg: "",
+    succes: false
+}
+
+exports.create = function (req, res) {
+
+    let employe = new Employe({
+        name: req.body.name,
+        lastName_p: req.body.lastName_p,
+        lastName_m: req.body.lastName_m,
+        phone: req.body.phone,
+        email: req.body.email,
+        addres: req.body.addres
+    });
+
+    employe.save(err => {
+        if(err){
+            console.log = err,
+            response.succes = false,
+            response.msg = "Error saving employe", 
+            res.json(response)
+            return;
+        }
+        response.succes = true,
+        response.msg = "Save  succes", 
+        res.json(response)
+        return;
+        
+    });
+
+    
+}
