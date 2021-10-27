@@ -30,6 +30,11 @@ exports.create = function (req, res) {
         return;
         
     });
-
     
+}
+
+exports.find = function(req, res){
+    Employe.find((err, employe) =>{
+        res.json(employe);
+    })
 }
