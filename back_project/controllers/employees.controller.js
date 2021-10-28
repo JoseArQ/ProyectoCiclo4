@@ -38,3 +38,11 @@ exports.find = function(req, res){
         res.json(employe);
     })
 }
+
+exports.findOne = function(req, res){
+    Employe.findOne({_id: req.params.id}, (err, employe) =>{
+
+        res.json(employe);
+    });
+   
+}
