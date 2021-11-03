@@ -17,7 +17,7 @@ exports.login = (req, res, next) => {
             response.token = jwt.sign({
                 id: user._id,
                 user: user.user
-            }, '__recret__');
+            }, '__secret__');
         }
 
         res.json(response);
